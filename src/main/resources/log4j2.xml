@@ -6,7 +6,7 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-		<Logger name="com.spring" level="DEBUG" additivity="false">
+		<Logger name="com.spring" level="INFO" additivity="false">
 			<AppenderRef ref="console" />
 		</Logger>
 		<Logger name="java.sql" level="INFO" additivity="false">
