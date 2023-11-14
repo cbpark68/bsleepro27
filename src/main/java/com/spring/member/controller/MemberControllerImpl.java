@@ -34,7 +34,8 @@ public class MemberControllerImpl implements MemberController {
 	@Override
 	@RequestMapping(value = "/member/listMembers.do", method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
+		//String viewName = getViewName(request);
+		String viewName = (String) request.getAttribute("viewName");
 		List list = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", list);
@@ -62,7 +63,8 @@ public class MemberControllerImpl implements MemberController {
 	@RequestMapping(value = { "/member/loginForm.do", "/member/memberForm.do" }, method = RequestMethod.GET)
 	// @RequestMapping(value="/member/*Form.do",method=RequestMethod.GET)
 	public ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
+		//String viewName = getViewName(request);
+		String viewName = (String) request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
@@ -105,6 +107,7 @@ public class MemberControllerImpl implements MemberController {
 	 * request.getAttribute("viewName"); ModelAndView mav = new ModelAndView();
 	 * mav.addObject("result", result); mav.setViewName(viewName); return mav; }
 	 */
+	/*
 	private String getViewName(HttpServletRequest request) throws Exception {
 		String contextPath = request.getContextPath();
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
@@ -136,5 +139,6 @@ public class MemberControllerImpl implements MemberController {
 		logger.debug("viewName=" + viewName);
 		return viewName;
 	}
+	*/
 
 }
